@@ -3,13 +3,49 @@
 
 <head>
     <title>Price Query</title>
+
+    <style>
+        #price_table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #price_table td,
+        #price_table th {
+            border: 1px solid;
+        }
+
+        #price_table th {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 
 <body>
     <form>
-        <input type="text" id="product_code" name="product_code" placeholder="Product Code">
+        <input type="text" id="product_code" name="product_code" placeholder="Product Code" required autofocus>
         <input type="submit" value="Enter">
     </form>
+    <br>
+    <table id="price_table">
+        <tr>
+            <th>Product Code</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>product code 1</td>
+            <td>price 1</td>
+        </tr>
+        <tr>
+            <td>product code 2</td>
+            <td>price 2</td>
+        </tr>
+        <tr>
+            <td>product code 3</td>
+            <td>price 3</td>
+        </tr>
+    </table>
 </body>
 
 </html>
