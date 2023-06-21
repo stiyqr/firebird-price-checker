@@ -23,29 +23,24 @@
 </head>
 
 <body>
-    <form>
-        <input type="text" id="product_code" name="product_code" placeholder="Product Code" required autofocus>
-        <input type="submit" value="Enter">
+    <form method="post">
+        <input type="text" id="product_code" name="product_code" placeholder="Enter product code" size="40" required
+            autofocus>
+        <input type="button" id="submit_btn" value="Enter" onclick="addMoreRows()">
     </form>
     <br>
+
     <table id="price_table">
-        <tr>
-            <th>Product Code</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>product code 1</td>
-            <td>price 1</td>
-        </tr>
-        <tr>
-            <td>product code 2</td>
-            <td>price 2</td>
-        </tr>
-        <tr>
-            <td>product code 3</td>
-            <td>price 3</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
+
+    <script src="history-table.js"></script>
 </body>
 
 </html>
