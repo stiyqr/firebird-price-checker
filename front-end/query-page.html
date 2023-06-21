@@ -5,6 +5,10 @@
     <title>Price Query</title>
 
     <style>
+        html {
+            font-family: "Roboto", sans-serif;
+        }
+
         #price_table {
             border-collapse: collapse;
             width: 100%;
@@ -24,9 +28,9 @@
 
 <body>
     <form method="post">
-        <input type="text" id="product_code" name="product_code" placeholder="Enter product code" size="40" required
-            autofocus>
-        <input type="button" id="submit_btn" value="Enter" onclick="addMoreRows()">
+        <input type="text" id="inp_product_code" name="inp_product_code" placeholder="Enter product code" size="40"
+            required autofocus>
+        <input type="button" id="submit_btn" value="Enter" onclick="buildTable()">
     </form>
     <br>
 
@@ -37,7 +41,11 @@
                 <th>Price</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="append_data">
+            <tr>
+                <td colspan="2" align="center">No Recent Search</td>
+            </tr>
+        </tbody>
     </table>
 
     <script src="history-table.js"></script>
