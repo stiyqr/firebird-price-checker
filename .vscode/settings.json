@@ -12,7 +12,7 @@
             "name": "MySQLConnection1",
             "database": "world",
             "username": "root",
-            "password": "verolukita0"
+            "password": "secretpass0"
         }
     ]
 }

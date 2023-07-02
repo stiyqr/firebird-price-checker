@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Price Query</title>
+
+    <style>
+        html {
+            font-family: "Roboto", sans-serif;
+        }
+
+        #price_table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #price_table td,
+        #price_table th {
+            border: 1px solid;
+        }
+
+        #price_table th {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/query-page" method="POST" id="main_form">
+        <input type="text" id="inp_product_code" name="inp_product_code" placeholder="Enter product code" size="40"
+            required autofocus>
+        <input type="button" id="submit_btn" value="Enter">
+    </form>
+    <br>
+
+    <table id="price_table">
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="append_data">
+            <% if (!products || products.length==0) { %>
+                <tr>
+                    <td colspan="2" align="center">No Recent Searches</td>
+                </tr>
+                <% } else { for (const product of products) { %>
+                    <tr>
+                        <td>
+                            <%= product[0] %>
+                        </td>
+                        <td>
+                            <%= product[1] %>
+                        </td>
+                    </tr>
+                    <% } } %>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
