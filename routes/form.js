@@ -15,16 +15,11 @@ router.get('/query-page', function (req, res) {
     res.render('query-page', { products: productsArr });
 });
 
-router.get('/new-post', async function (req, res) {
-    const [authors] = await db.query('SELECT * FROM authors');
-    res.render('create-post', { authors: authors });
-});
-
 router.post('/query-page', async function (req, res) {
     const data = [req.body.inp_product_code.trim()];
     const [products] = await db.query('SELECT * FROM product_prices WHERE ProductCode = ?', [data[0]]);
     for (const product of products) {
-        addToTable(product.ProductCode, product.ProductPrice);
+        addDataToTable(product.ProductCode, product.ProductPrice);
     }
     res.redirect('/query-page');
 });
@@ -54,7 +49,8 @@ function checkCurrentTable(product_code, product_price) {
     }
 }
 
-function addToTable(product_code, product_price) {
+
+function addDataToTable(product_code, product_price) {
     checkCurrentTable(product_code, product_price);
 
     // set max table length
