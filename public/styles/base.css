@@ -1,0 +1,46 @@
+html {
+    font-family: "Roboto", sans-serif;
+}
+
+.form_div {
+    display: block;
+    text-align: center;
+}
+
+#main_form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#price_table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#price_table td,
+#price_table th {
+    border: 1px solid;
+}
+
+#price_table th {
+    background-color: #ddd;
+}
+
+#product_code_column {
+    text-align: left;
+}
+
+#price_column {
+    text-align: center;
+}
+
+#product_alert_text {
+    animation: fadeOut 4s linear forwards;
+    text-align: left;
+    color: red;
+}
