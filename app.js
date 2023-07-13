@@ -7,7 +7,7 @@ const formRoutes = require('./routes/form');
 const app = express();
 
 const port = 3000;
-const ipAddress = '';
+const ipAddress = require('./network');
 
 // Activate EJS view engine
 app.set('view engine', 'ejs');
@@ -26,6 +26,6 @@ app.use(function (error, req, res, next) {
 });
 
 app.listen(port);
-// app.listen(port, ipAddress, () => {
-//     console.log('Server running at http://' + ipAddress + ':' + port + '/');
-// });
+app.listen(port, ipAddress, () => {
+    console.log('Server running at http://' + ipAddress + ':' + port + '/');
+});

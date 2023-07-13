@@ -2,11 +2,19 @@
 <html>
 
 <head>
-    <title>Price Query</title>
+    <title>Price Check</title>
     <link rel="stylesheet" href="/styles/base.css">
 </head>
 
 <body>
+    <header id="main_header">
+        <form action="/query-page/clear" method="POST">
+            <button id="clear_table_btn">Clear Table</button>
+        </form>
+        <h1>Price Checker</h1>
+    </header>
+    <br>
+
     <div class="form_div">
         <form action="/query-page" method="POST" id="main_form">
             <input type="text" id="inp_product_code" name="inp_product_code" autocomplete="off"
@@ -27,22 +35,26 @@
             </caption>
             <thead>
                 <tr>
-                    <th>Product Code</th>
+                    <th>Item No.</th>
+                    <th>Item Name</th>
                     <th>Price</th>
                 </tr>
             </thead>
             <tbody>
                 <% if (!products || products.length==0) { %>
                     <tr>
-                        <td colspan="2" align="center">No Recent Searches</td>
+                        <td colspan="3" align="center">No Recent Searches</td>
                     </tr>
                     <% } else { for (const product of products) { %>
                         <tr>
-                            <td id="product_code_column">
+                            <td id="item_no_column">
                                 <%= product[0] %>
                             </td>
-                            <td id="price_column">
+                            <td id="item_desc_column">
                                 <%= product[1] %>
+                            </td>
+                            <td id="price_column">
+                                <%= product[2] %>
                             </td>
                         </tr>
                         <% } } %>
@@ -50,6 +62,12 @@
         </table>
     </div>
 
+    <script>
+        function clearArr() {
+
+            location.reload();
+        }
+    </script>
 </body>
 
 </html>

@@ -26,10 +26,15 @@ router.post('/query-page', async function (req, res) {
     }
     else {
         for (const product of products) {
-            addDataToTable(product.item_no, product.unit_price);
+            addDataToTable(product.item_no, product.description, product.unit_price);
         }
     }
     res.redirect('/query-page');
 });
+
+router.post('/query-page/clear', function (req, res) {
+    productsArr.splice(0, productsArr.length);
+    res.redirect('/query-page');
+})
 
 module.exports = router;

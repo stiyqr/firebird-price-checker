@@ -2,9 +2,40 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    margin: 0;
+}
+
 .form_div {
     display: block;
     text-align: center;
+}
+
+#main_header {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+#main_header h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main_header form {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+#main_header button {
+    width: 80%;
+    max-width: 500px;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #main_form {
@@ -14,24 +45,32 @@ html {
     text-align: left;
 }
 
+#main_form input {
+    padding: 4px;
+}
+
 #price_table {
     border-collapse: collapse;
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    display: table;
+    align-self: center;
 }
 
 #price_table td,
 #price_table th {
     border: 1px solid;
+    padding: 4px;
 }
 
 #price_table th {
     background-color: #ddd;
 }
 
-#product_code_column {
+#item_no_column,
+#item_desc_column {
     text-align: left;
 }
 
@@ -43,4 +82,10 @@ html {
     animation: fadeOut 4s linear forwards;
     text-align: left;
     color: red;
+}
+
+#clear_table_btn {
+    display: inline;
+    vertical-align: bottom;
+    align-items: flex-end;
 }
