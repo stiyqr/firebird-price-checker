@@ -1,6 +1,6 @@
 const express = require('express');
 
-const dbpool = require('../data/database');
+const db = require('../data/database');
 
 const { productsArr, addDataToTable } = require('./functions')
 
@@ -20,24 +20,16 @@ router.get('/query-page', async function (req, res) {
 
 router.post('/query-page', async function (req, res) {
     const inputData = [req.body.inp_product_code.trim()];
-    const queryStr = 'SELECT ITEMNO, ITEMDESCRIPTION, UNITPRICE FROM ITEM WHERE ITEMNO = \'' + inputData + '\'';
-
-    await dbpool.get(function(err, db){
-        if (err) throw err;
-
-        db.query(queryStr, function(err, result) {
-            if (result.length == 0) {
-                productNotFound = inputData;
-            }
-            else {
-                for (const product of result) {
-                    addDataToTable(product.ITEMNO, product.ITEMDESCRIPTION, product.UNITPRICE);
-                }
-            }
-            db.detach();
-            res.redirect('/query-page');
-        });
-    });
+    const [products] = await db.query('SELECT * FROM lestari WHERE item_no = ?', [inputData[0]]);
+    if (products.length == 0) {
+        productNotFound = inputData;
+    }
+    else {
+        for (const product of products) {
+            addDataToTable(product.item_no, product.description, product.unit_price);
+        }
+    }
+    res.redirect('/query-page');
 });
 
 router.post('/query-page/clear', function (req, res) {

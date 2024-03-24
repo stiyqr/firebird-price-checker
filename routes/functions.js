@@ -1,5 +1,3 @@
-const db = require('../data/database');
-
 const productsArr = [];
 const availableProductCodes = [];
 
@@ -44,16 +42,6 @@ function formatPrice(price) {
     var result = "Rp" + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ",-";
     return result;
 }
-
-async function getAvailableProductCodes() {
-    const [results] = await db.query('SHOW COLUMNS FROM lestari');
-
-    for (const result of results) {
-        availableProductCodes.push(result.Field);
-    }
-}
-
-getAvailableProductCodes();
 
 module.exports = {
     productsArr,
